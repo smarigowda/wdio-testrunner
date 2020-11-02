@@ -1,10 +1,18 @@
+import { Auth } from '../page-objects/Auth';
+
+const auth = new Auth();
+
+const emailSelector = 'input[type="email"]';
+const passwordSelector = 'input[type="password"]';
+const signInButtonSelector = 'button*=Sign in';
+
 function login({ username, password }) {
     // enter valid user name in email input
-    $('input[type="email"]').setValue(username);
+    auth.email.setValue(username);
     // enter valid password in the password input
-    $('input[type="password"]').setValue(password);
+    auth.password.setValue(password);
     // click on sign-in button
-    $('button*=Sign in').click();
+    auth.signIn.click();
 }
 
 
@@ -13,7 +21,7 @@ describe('Login', () => {
         // go to the login page
         browser.url('/login');
     })
-    it('should let you login', () => {
+    it.only('should let you login', () => {
         login({ username: 'demo@learnwebdriverio.com', password: 'wdiodemo' });
 
         // assert that we are logged in
@@ -40,4 +48,4 @@ describe('Login', () => {
         expect($('.error-messages li')).toBeExisting();
         expect($("li*=password can't be blank")).toBeExisting();
     });
-})
+});

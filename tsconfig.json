@@ -1,7 +1,8 @@
 {
     "compilerOptions": {
         "types": ["node", "@wdio/sync", "@wdio/mocha-framework"],
-        "esModuleInterop": true
+        "esModuleInterop": true,
+        "target": "ES6"
     },
     "include": [
         "./test/**/*.ts"
