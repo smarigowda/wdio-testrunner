@@ -4,6 +4,7 @@ export class Auth {
     signInButtonSelector = 'button*=Sign in';
     errorMessageSelector = '.error-messages li';
     settingsSelector = 'a*=Settings'
+    logoutButtonSelector = 'button*=logout';
 
     constructor() {
     }
@@ -19,6 +20,12 @@ export class Auth {
     get errorMessage() {
         return $(this.errorMessageSelector);
     }
+    get logoutButton() {
+        return $(this.logoutButtonSelector);
+    }
+    get settings() {
+        return $(this.settingsSelector);
+    }
     login({ username, password }) {
         this.email.setValue(username);
         this.password.setValue(password);
@@ -31,6 +38,25 @@ export class Auth {
             // or wait for error
             const errorExists = $(this.errorMessageSelector).isExisting();
             return settingsExists || errorExists;
-        });
+        }, { interval: 100, timeoutMsg: 'login did not succeed, no error occurred' });
+
+        return this;
+    }
+
+    logout() {
+        this.settings.scrollIntoView();
+        this.settings.click();
+        this.logoutButton.scrollIntoView();
+        this.logoutButton.click();
+        expect(browser).toHaveUrl('https://demo.learnwebdriverio.com/');
+    }
+
+    expectEmailError() {
+        expect(this.errorMessage).toBeExisting();
+        expect($("li*=email can't be blank")).toBeExisting();
+    }
+    expectPasswordError() {
+        expect(this.errorMessage).toBeExisting();
+        expect($("li*=password can't be blank")).toBeExisting();
     }
 }
