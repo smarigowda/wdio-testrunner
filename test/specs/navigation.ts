@@ -21,7 +21,8 @@ describe('Navigation', function() {
         $('=Sign in').click();
         expect(browser).toHaveUrl('https://demo.learnwebdriverio.com/login');
 
-        const logoSelector = '//a[contains(@class, "navbar-brand")]';
+        // const logoSelector = '//a[contains(@class, "navbar-brand")]'; // XPath
+        const logoSelector = 'a[class^="navbar-brand"]'; // CSS
         $(logoSelector).click();
         expect(browser).toHaveUrl('https://demo.learnwebdriverio.com/');
         // browser.debug();
