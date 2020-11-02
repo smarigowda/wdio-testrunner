@@ -14,7 +14,8 @@ describe('Post Editor', () => {
     });
     beforeEach(() => {
         // load post editor page
-        browser.url('/editor');
+        // browser.url('/editor');
+        editor.load();
     })
     it('should load properly', () => {
         // assert the url is correct

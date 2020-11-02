@@ -21,4 +21,8 @@ export class Editor {
     get publish() {
         return $(this.selectors.publish);
     }
+    load() {
+        browser.url('/editor');
+        expect(browser).toHaveUrlContaining('editor');
+    }
 }
