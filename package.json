@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "wdio --spec editor"
+    "test": "wdio --spec editor --spec login"
   },
   "keywords": [],
   "author": "",

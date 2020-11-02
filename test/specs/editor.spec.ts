@@ -1,5 +1,6 @@
 import { Auth } from '../page-objects/Auth';
 import { Editor } from '../page-objects/Editor';
+import { users } from '../fixtures/users';
 
 const auth = new Auth();
 const editor = new Editor();
@@ -9,7 +10,7 @@ describe('Post Editor', () => {
         // load login page
         browser.url('/login');
         // login with valid user credentials
-        auth.login({ username: 'demo@learnwebdriverio.com', password: 'wdiodemo' });
+        auth.login(users.user1);
     });
     beforeEach(() => {
         // load post editor page

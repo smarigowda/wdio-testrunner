@@ -1,5 +1,7 @@
 import { Auth } from '../page-objects/Auth';
 
+import { users } from '../fixtures/users';
+
 const auth = new Auth();
 
 describe('Login', () => {
@@ -8,7 +10,7 @@ describe('Login', () => {
         browser.url('/login');
     })
     it('should let you login', () => {
-        auth.login({ username: 'demo@learnwebdriverio.com', password: 'wdiodemo' });
+        auth.login(users.user1);
         auth.logout();
     });
     it('should error with a missing username', () => {
@@ -18,7 +20,7 @@ describe('Login', () => {
     });
     it('should error with a missing password', () => {
         auth
-          .login({ username: 'demo@learnwebdriverio.com', password: '' })
+          .login({ username: users.user1.username, password: '' })
           .expectPasswordError();
     });
 });
