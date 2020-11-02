@@ -17,4 +17,14 @@ describe('Navigation', function() {
         // assert.strictEqual(browser.getUrl(), 'https://demo.learnwebdriverio.com/login');
         expect(browser).toHaveUrl('https://demo.learnwebdriverio.com/login');
     });
+    it('Clicking on Logo should navigate to Home Page', () => {
+        $('=Sign in').click();
+        expect(browser).toHaveUrl('https://demo.learnwebdriverio.com/login');
+
+        const logoSelector = '//a[contains(@class, "navbar-brand")]';
+        $(logoSelector).click();
+        expect(browser).toHaveUrl('https://demo.learnwebdriverio.com/');
+        // browser.debug();
+        console.log('end of test...');
+    })
 })
