@@ -22,7 +22,7 @@ describe('Login', () => {
         browser.url('/login');
     })
     it.only('should let you login', () => {
-        login({ username: 'demo@learnwebdriverio.com', password: 'wdiodemo' });
+        auth.login({ username: 'demo@learnwebdriverio.com', password: 'wdiodemo' });
 
         // assert that we are logged in
         $('=Settings').waitForExist();
@@ -39,12 +39,12 @@ describe('Login', () => {
         expect(browser).toHaveUrl('https://demo.learnwebdriverio.com/');
     });
     it('should error with a missing username', () => {
-        login({ username: '', password: 'wdiodemo' });
+        auth.login({ username: '', password: 'wdiodemo' });
         expect($('.error-messages li')).toBeExisting();
         expect($("li*=email can't be blank")).toBeExisting();
     });
     it('should error with a missing password', () => {
-        login({ username: 'demo@learnwebdriverio.com', password: '' });
+        auth.login({ username: 'demo@learnwebdriverio.com', password: '' });
         expect($('.error-messages li')).toBeExisting();
         expect($("li*=password can't be blank")).toBeExisting();
     });
