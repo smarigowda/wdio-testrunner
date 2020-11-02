@@ -7,7 +7,8 @@ const auth = new Auth();
 describe('Login', () => {
     beforeEach(() => {
         // go to the login page
-        browser.url('/login');
+        // browser.url('/login');
+        auth.load();
     })
     it('should let you login', () => {
         auth.login(users.user1);

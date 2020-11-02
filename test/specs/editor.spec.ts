@@ -8,7 +8,8 @@ const editor = new Editor();
 describe('Post Editor', () => {
     before(() => {
         // load login page
-        browser.url('/login');
+        // browser.url('/login');
+        auth.load();
         // login with valid user credentials
         auth.login(users.user1);
     });

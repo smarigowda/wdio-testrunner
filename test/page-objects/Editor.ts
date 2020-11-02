@@ -1,4 +1,9 @@
-export class Editor {
+import { Generic } from '../page-objects/Generic';
+
+export class Editor extends Generic {
+    constructor() {
+        super('/editor');
+    }
     selectors  = {
         title: '[data-qa-id="editor-title"]',
         description: '[data-qa-id="editor-description"]',
@@ -20,9 +25,5 @@ export class Editor {
     }
     get publish() {
         return $(this.selectors.publish);
-    }
-    load() {
-        browser.url('/editor');
-        expect(browser).toHaveUrlContaining('editor');
     }
 }

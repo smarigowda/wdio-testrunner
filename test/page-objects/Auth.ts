@@ -1,4 +1,6 @@
-export class Auth {
+import { Generic } from '../page-objects/Generic';
+
+export class Auth extends Generic {
     emailSelector = 'input[type="email"]';
     passwordSelector = 'input[type="password"]';
     signInButtonSelector = 'button*=Sign in';
@@ -7,6 +9,7 @@ export class Auth {
     logoutButtonSelector = 'button*=logout';
 
     constructor() {
+        super('/login');
     }
     get email() {
         return $(this.emailSelector);
