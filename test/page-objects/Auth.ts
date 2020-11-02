@@ -26,7 +26,7 @@ export class Auth {
     get settings() {
         return $(this.settingsSelector);
     }
-    login({ username, password }) {
+    login({ username, password }: { username: string, password: string }): this {
         this.email.setValue(username);
         this.password.setValue(password);
         this.signIn.click();
