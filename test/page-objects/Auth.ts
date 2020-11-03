@@ -51,7 +51,7 @@ export class Auth extends Generic {
         this.settings.click();
         this.logoutButton.scrollIntoView();
         this.logoutButton.click();
-        expect(browser).toHaveUrl('https://demo.learnwebdriverio.com/');
+        expect(browser).toHaveUrl(browser.config.baseUrl);
     }
 
     expectEmailError() {

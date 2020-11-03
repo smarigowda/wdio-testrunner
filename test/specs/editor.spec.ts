@@ -20,7 +20,7 @@ describe('Post Editor', () => {
     })
     it('should load properly', () => {
         // assert the url is correct
-        expect(browser).toHaveUrlContaining('editor');
+        expect(browser).toHaveUrl(editor.url.href);
         // assert the page fields are correct
         expect(editor.title).toBeExisting();
         expect(editor.description).toBeExisting();
