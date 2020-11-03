@@ -26,4 +26,13 @@ export class Editor extends Generic {
     get publish() {
         return $(this.selectors.publish);
     }
+    shouldLoadProperly() {
+        expect(browser).toHaveUrl(this.url.href);
+        // assert the page fields are correct
+        expect(this.title).toBeExisting();
+        expect(this.description).toBeExisting();
+        expect(this.body).toBeExisting();
+        expect(this.tags).toBeExisting();
+        expect(this.publish).toBeExisting();
+    }
 }

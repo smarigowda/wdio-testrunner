@@ -19,13 +19,6 @@ describe('Post Editor', () => {
         editor.load();
     })
     it('should load properly', () => {
-        // assert the url is correct
-        expect(browser).toHaveUrl(editor.url.href);
-        // assert the page fields are correct
-        expect(editor.title).toBeExisting();
-        expect(editor.description).toBeExisting();
-        expect(editor.body).toBeExisting();
-        expect(editor.tags).toBeExisting();
-        expect(editor.publish).toBeExisting();
+        editor.shouldLoadProperly();
     });
 });
