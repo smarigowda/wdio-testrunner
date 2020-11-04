@@ -1,5 +1,11 @@
 import { Generic } from '../page-objects/Generic';
 
+interface submitArticle {
+    title: string,
+    description: string,
+    body: string,
+    tags: string[]
+}
 export class Editor extends Generic {
     constructor() {
         super('/editor');
@@ -38,5 +44,23 @@ export class Editor extends Generic {
         expect(this.body).toBeExisting();
         expect(this.tags).toBeExisting();
         expect(this.publish).toBeExisting();
+    }
+    submitArticle({
+        title,
+        description,
+        body,
+        tags,
+    }: submitArticle) {
+        this.title.setValue(title);
+        this.description.setValue(description);
+        this.body.setValue(body);
+        tags.forEach(tag => {
+            this.tags.setValue(tag);
+            browser.keys('Enter');
+        });
+        this.publish.click();
+        // expect(browser).toHaveUrlContaining(`articles/${title}`);
+        this.deleteArticle.click();
+        console.log('break here...');
     }
 }

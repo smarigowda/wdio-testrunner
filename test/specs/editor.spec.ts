@@ -17,14 +17,12 @@ describe('Post Editor', () => {
         editor.shouldLoadProperly();
     });
     it('should let you publish a new post', () => {
-        editor.title.setValue('Test Title');
-        editor.description.setValue('Test Description');
-        editor.body.setValue('Test body');
-        editor.tags.setValue('test-automation');
-        browser.keys('Enter');
-        editor.publish.click();
-        expect(browser).toHaveUrlContaining('articles/test-title');
-        editor.deleteArticle.click();
-        console.log('break here...');
+        const article = {
+            title: 'Test Title',
+            description: 'Test Description',
+            body: 'Test Body',
+            tags: ['automation', 'wdio']
+        }
+        editor.submitArticle(article);
     });
 });
