@@ -16,7 +16,8 @@ export class Editor extends Generic {
         body: '[data-qa-id="editor-body"] textarea',
         tags: '[data-qa-id="editor-tags"]',
         publish: '[data-qa-id="editor-publish"]',
-        deleteArticle: 'button*=Delete Article'
+        deleteArticle: 'button*=Delete Article',
+        articleTitle: '[data-qa-id="article-title"]'
     }
     get title() {
         return $(this.selectors.title);
@@ -36,6 +37,9 @@ export class Editor extends Generic {
     get deleteArticle() {
         return $(this.selectors.deleteArticle);
     }
+    get articleTitle() {
+        return $(this.selectors.articleTitle);
+    }
     shouldLoadProperly() {
         expect(browser).toHaveUrl(this.url.href);
         // assert the page fields are correct
@@ -50,7 +54,7 @@ export class Editor extends Generic {
         description,
         body,
         tags,
-    }: submitArticle) {
+    }: submitArticle): this {
         this.title.setValue(title);
         this.description.setValue(description);
         this.body.setValue(body);
@@ -59,8 +63,11 @@ export class Editor extends Generic {
             browser.keys('Enter');
         });
         this.publish.click();
-        // expect(browser).toHaveUrlContaining(`articles/${title}`);
+        
+        expect(this.articleTitle.getText()).toBe(title);
         this.deleteArticle.click();
-        console.log('break here...');
+
+        return this;
     }
+
 }
