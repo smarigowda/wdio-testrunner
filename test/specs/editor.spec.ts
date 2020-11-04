@@ -23,10 +23,10 @@ describe("Post Editor", () => {
     // data should not be coupled to the spec
     // ex: import data from data file
     const article = {
-      title: chance.word({ length: 1 }),
+      title: chance.word({ length: 5 }),
       description: chance.sentence({ words: 5 }),
       body: chance.sentence({ words: 20 }),
-      tags: [chance.word({ length: 1 }), chance.word({ length: 1 })],
+      tags: [chance.word({ length: 5 }), chance.word({ length: 7 })],
     };
     editor.submitArticle(article);
   });
