@@ -7,9 +7,10 @@ export class Editor extends Generic {
     selectors  = {
         title: '[data-qa-id="editor-title"]',
         description: '[data-qa-id="editor-description"]',
-        body: '[data-qa-id="editor-body"]',
+        body: '[data-qa-id="editor-body"] textarea',
         tags: '[data-qa-id="editor-tags"]',
-        publish: '[data-qa-id="editor-publish"]'
+        publish: '[data-qa-id="editor-publish"]',
+        deleteArticle: 'button*=Delete Article'
     }
     get title() {
         return $(this.selectors.title);
@@ -25,6 +26,9 @@ export class Editor extends Generic {
     }
     get publish() {
         return $(this.selectors.publish);
+    }
+    get deleteArticle() {
+        return $(this.selectors.deleteArticle);
     }
     shouldLoadProperly() {
         expect(browser).toHaveUrl(this.url.href);

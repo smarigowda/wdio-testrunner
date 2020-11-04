@@ -7,18 +7,24 @@ const editor = new Editor();
 
 describe('Post Editor', () => {
     before(() => {
-        // load login page
-        // browser.url('/login');
         auth.load();
-        // login with valid user credentials
         auth.login(users.user1);
     });
     beforeEach(() => {
-        // load post editor page
-        // browser.url('/editor');
         editor.load();
     })
     it('should load properly', () => {
         editor.shouldLoadProperly();
+    });
+    it('should let you publish a new post', () => {
+        editor.title.setValue('Test Title');
+        editor.description.setValue('Test Description');
+        editor.body.setValue('Test body');
+        editor.tags.setValue('test-automation');
+        browser.keys('Enter');
+        editor.publish.click();
+        expect(browser).toHaveUrlContaining('articles/test-title');
+        editor.deleteArticle.click();
+        console.log('break here...');
     });
 });
