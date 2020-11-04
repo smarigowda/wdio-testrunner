@@ -63,9 +63,9 @@ export class Editor extends Generic {
     this.publish.click();
 
     expect(this.articleTitle.getText()).toBe(title);
-    // this.deleteArticle.click();
     expect(article.title).toHaveText(title);
     expect(article.body).toHaveText(body);
+    article.delete.click()
     return this;
   }
 }

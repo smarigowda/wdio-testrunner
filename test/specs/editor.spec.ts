@@ -4,7 +4,6 @@ import { users } from "../fixtures/users";
 import Chance from "chance";
 
 const chance = new Chance();
-
 const auth = new Auth();
 const editor = new Editor();
 
