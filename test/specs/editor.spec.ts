@@ -29,4 +29,15 @@ describe("Post Editor", () => {
     };
     editor.submitArticle(article);
   });
+  describe("Unsaved Change Alert", () => {
+    beforeEach(() => {
+      editor.title.setValue("Unsaved Changes...");
+    });
+    it("should alert unsaved changes", () => {
+      browser.refresh();
+      console.log("breakpoint here...");
+      // navigate
+      // on clicking a link
+    });
+  });
 });
