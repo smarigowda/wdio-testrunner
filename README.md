@@ -1,6 +1,5 @@
-# wdio-testrunner
+# Code for the `Web App Testing` Book, using Type Script
 
-## Coding exampels for the Book
 https://leanpub.com/webapp-testing-guidebook
 
 ## Prerequisites
@@ -11,19 +10,18 @@ Node.js should be installed on your computer
 
 - Clone the repository
 
-    `git clone git@github.com:smarigowda/wdio-testrunner.git`
+  `git clone git@github.com:smarigowda/wdio-testrunner.git`
 
 - Install node modules by running the following command
 
-    `npm install`
+  `npm install`
 
 - Tests can be run using command
 
-    `npm run test`
+  `npm run test`
 
 ## How to debug using launch json
 
 - Clik on debug icon in vscode
 
 - Click on Start Debugging icon (green arrow)
-
