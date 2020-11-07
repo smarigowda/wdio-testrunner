@@ -34,9 +34,13 @@ describe("Post Editor", () => {
       editor.title.setValue("Unsaved Changes...");
     });
     it("should alert unsaved changes", () => {
-      browser.refresh();
-      console.log("breakpoint here...");
       // navigate
+      browser.refresh();
+      expect(() => {
+        browser.acceptAlert()
+      }).not.toThrow();
+      
+      console.log("breakpoint here...");
       // on clicking a link
     });
   });
