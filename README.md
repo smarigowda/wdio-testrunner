@@ -1,6 +1,6 @@
-# Code for the `Web App Testing` Book, using Type Script
+# Type Script Code for `Web App Testing` Book
 
-https://leanpub.com/webapp-testing-guidebook
+Book by Kevin, link https://leanpub.com/webapp-testing-guidebook
 
 ## Prerequisites
 
@@ -12,16 +12,18 @@ Node.js should be installed on your computer
 
   `git clone git@github.com:smarigowda/wdio-testrunner.git`
 
-- Install node modules by running the following command
+- Install node modules
 
   `npm install`
 
-- Tests can be run using command
+- Run the tests from commandline
 
   `npm run test`
 
-## How to debug using launch json
+## How to debug using launch json in VS Code
 
-- Clik on debug icon in vscode
+- Clik on `debug` icon in VS Code
 
-- Click on Start Debugging icon (green arrow)
+- Click on `Start Debugging` icon (green arrow)
+
+- You can apply break points to stop the test and debug at specific location
